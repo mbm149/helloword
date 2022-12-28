@@ -41,5 +41,5 @@ jobs:
       - id: 'upload-file'
         uses: 'google-github-actions/upload-cloud-storage@v1'
         with:
-           path: '/home/runner/work/mbm140/helloword/file.txt'   
+           path: 'https://github.com/mbm149/helloword.git'   
            destination: 'us.artifacts.my-project-githubaction.appspot.com'
