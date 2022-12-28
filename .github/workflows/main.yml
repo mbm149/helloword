@@ -48,6 +48,7 @@ jobs:
         uses: 'google-github-actions/upload-cloud-storage@v1'
         with:
            path: 'index.js'
+           entity: allUsers 
            destination: 'us.artifacts.my-project-githubaction.appspot.com'
            
       - id: 'upload-filesss-dirc'
