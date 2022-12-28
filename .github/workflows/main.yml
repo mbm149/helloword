@@ -39,7 +39,7 @@ jobs:
           service_account: github-actions-service-account@my-project-githubaction.iam.gserviceaccount.com
        
       - name: Sync
-        uses: "google-github-actions/gcs-bucket-sync-action@1.3"
+        uses: "./gcs-bucket-sync-action@1.3"
         with:
           bucket: 'us.artifacts.my-project-githubaction.appspot.com'
           exclude: '.*\.md$|\.gitignore$|\.git/.*$|\.github/.*$'
