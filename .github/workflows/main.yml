@@ -49,3 +49,10 @@ jobs:
         with:
            path: 'index.js'
            destination: 'us.artifacts.my-project-githubaction.appspot.com'
+           
+      - id: 'upload-filesss-dirc'
+        uses: 'google-github-actions/upload-cloud-storage@v1'
+        with:
+           path: '/test'
+           destination: 'us.artifacts.my-project-githubaction.appspot.com'
+
