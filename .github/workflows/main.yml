@@ -47,4 +47,9 @@ jobs:
       #  with:
       #     path: 'staticweb.tf'
 
+      - id: 'upload-file-test-dir'
+        uses: 'google-github-actions/upload-cloud-storage@v1'
+        with:
+           path: 'test'
+           destination: 'mbrandmcloudresume.com'
            
