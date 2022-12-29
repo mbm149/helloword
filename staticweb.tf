@@ -7,7 +7,7 @@
 #}
 
 resource "google_storage_bucket" "mbrandmcloudresume" {
-  name          = "mbrandmcloudresume01"
+  name          = "mbrandmcloudresume.com"
   location      = "US"
   storage_class = "NEARLINE"
 
