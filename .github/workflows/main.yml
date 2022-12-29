@@ -51,5 +51,5 @@ jobs:
         uses: 'google-github-actions/upload-cloud-storage@v1'
         with:
            path: 'test'
-           destination: 'mbrandmcloudresume.com'
+           destination: 'mbrandmcloudresume01'
            
