@@ -30,14 +30,14 @@ resource "google_storage_bucket" "mbrandmcloudresume" {
 # Upload a simple index.html page to the bucket
 resource "google_storage_bucket_object" "indexpage" {
   name         = "index.html"
-  source      = "/home/mbm_25149/app02/index.html"
+  source      = "index.html"
   bucket       = google_storage_bucket.mbrandmcloudresume.id
 
 }
 # Upload a simple 404 / error page to the bucket
 resource "google_storage_bucket_object" "errorpage" {
   name         = "404.html"
-  source      = "/home/mbm_25149/app02/404.html"
+  source      = "404.html"
   content_type = "text/html"
   bucket       = google_storage_bucket.mbrandmcloudresume.id
 }
