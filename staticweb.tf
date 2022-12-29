@@ -6,8 +6,8 @@
 #  byte_length = 8
 #}
 
-resource "google_storage_bucket" "mbrandmcloudresume01" {
-  name          = "mbrandmcloudresume01.com"
+resource "google_storage_bucket" "mbrandmcloudresume" {
+  name          = "mbrandmcloudresume01"
   location      = "US"
   storage_class = "NEARLINE"
 
