@@ -38,15 +38,13 @@ jobs:
           workload_identity_provider: projects/857089065468/locations/global/workloadIdentityPools/gh-pool/providers/gh-provider
           # Replace with your GitHub Service Account
           service_account: github-actions-service-account@my-project-githubaction.iam.gserviceaccount.com
-                  
-      - id: 'deploy'
-        uses: 'google-github-actions/deploy-cloudrun@v1'
-        with:
-          service: 'hello-cloud-run'
-          image: 'gcr.io/my-project-githubaction'
 
-      - name: 'Use output'
-        run: 'curl "${{ steps.deploy.outputs.url }}"'           
-           
-           
+      - name: Terraform Init
+        uses: hashicorp/terraform-github-actions/init@v0.4.0
+        
+      - name: Terraform Apply
+        uses: hashicorp/terraform-github-actions/apply@v0.4.0
+        with:
+           path: 'staticweb.tf'
+
            
