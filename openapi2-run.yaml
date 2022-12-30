@@ -1,0 +1,29 @@
+#Openapi2-run.yaml
+swagger: '2.0'
+info:
+  title: apiidcloudresume cloudresume123
+  description: API cloudresume on API Gateway with a Cloud Run backend
+  version: 1.0.0
+schemes:
+- https
+produces:
+- application/json
+x-google-backend:
+  address: https://app01-76zuattrja-uc.a.run.app
+  jwt_audience: https://app01-76zuattrja-uc.a.run.app
+paths:
+  /:
+    get:
+      parameters:
+        - in: path
+          name: asset
+          type: string
+          required: true
+          description: visit counts
+      summary: Assets
+      operationId: getAsset
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: string
