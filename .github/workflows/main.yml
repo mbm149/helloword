@@ -40,7 +40,7 @@ jobs:
           service_account: github-actions-service-account@my-project-githubaction.iam.gserviceaccount.com
 
       - name: Build Docker Image 
-        run: docker build -t $IMAGE_NAME:lastes . 
+        run: docker build -t $IMAGE_NAME:latest . 
 
       - name: Push Docker Image to Container Registry 
         env: 
