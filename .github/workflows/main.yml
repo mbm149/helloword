@@ -39,16 +39,15 @@ jobs:
           # Replace with your GitHub Service Account
           service_account: github-actions-service-account@my-project-githubaction.iam.gserviceaccount.com
 
-      - name: Terraform Init
-        uses: hashicorp/terraform-github-actions/init@v0.4.0
-        
-      - name: Terraform Apply
-        uses: hashicorp/terraform-github-actions/apply@v0.4.0
-      #  with:
-      #     path: 'staticweb.tf'
+      - name: Build Docker Image 
+        run: docker build -t $IMAGE_NAME:lastes . 
 
-      - id: 'upload-file-test-dir'
-        uses: 'google-github-actions/upload-cloud-storage@v1'
-        with:
-           path: 'test'
-           destination: 'mbrandmcloudresume01'
+      - name: Push Docker Image to Container Registry 
+        env: 
+          GIT_TAG: v0.1.0
+        run: |- 
+          docker tag $IMAGE_NAME:latest grc.io/$PROJECT_ID/$IMAGE_NAME:latest
+          docker tag $IMAGE_NAME:latest grc.io/$PROJECT_ID/$IMAGE_NAME:$GIT_TAG
+          docker push grc.io/$PROJECT_ID/$IMAGE_NAME:latest
+          docker push grc.io/$PROJECT_ID/$IMAGE_NAME:$GIT_TAG
+
