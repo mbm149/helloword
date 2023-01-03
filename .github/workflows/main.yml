@@ -62,5 +62,5 @@ jobs:
       - id: deploy-02
         uses: 'google-github-actions/deploy-cloudrun@v1'
         with:
-          service: 'hello-cloud-run'
+          service: 'cloudresume'
           image: 'gcr.io/my-project-githubaction/app'
