@@ -50,7 +50,7 @@ jobs:
       - name: Push Docker image
         run: docker push $IMAGE_NAME
 
-      - id: deploy
+      - id: deploy-01
         name: Deploy Docker image
         uses: "google-github-actions/deploy-cloudrun@v0"
         with:
@@ -58,12 +58,9 @@ jobs:
           region: us-central1
           service: app
           flags: --port=8080
-
-          
-      - name: Terraform Init
-        uses: hashicorp/terraform-github-actions/init@v0.4.0
-        
-      - name: Terraform Apply
-        uses: hashicorp/terraform-github-actions/apply@v0.4.0
-      #  with:
-      #     path: 'staticweb.tf'  
+    
+      - id: deploy-02
+        uses: 'google-github-actions/deploy-cloudrun@v1'
+        with:
+          service: 'hello-cloud-run'
+          image: 'gcr.io/my-project-githubaction/app'
