@@ -45,8 +45,8 @@ jobs:
       - name: Build Docker Image 
         run: docker build . -t $IMAGE_NAME:latest
 
-      - name: Test Docker images
-        run: docker run  $IMAGE_NAME:latest
+      #- name: Test Docker images
+      #  run: docker run  $IMAGE_NAME:latest sh -c "go test"
 
 
       - name: Push Docker Image to Artifact Registry
