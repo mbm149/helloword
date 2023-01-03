@@ -25,7 +25,7 @@ jobs:
 
     env:
       # Replace $PROJECT_ID with your project ID
-      IMAGE_NAME: us-central1-docker.pkg.dev/my-project-githubaction/cloud-run-source-deploy
+      IMAGE_NAME:  gcr.io/my-project-githubaction/app
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
