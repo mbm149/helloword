@@ -42,20 +42,22 @@ jobs:
           # Replace with your GitHub Service Account
           service_account: github-actions-service-account@my-project-githubaction.iam.gserviceaccount.com
 
+
+      - name: Configure Docker
+        run: gcloud auth configure-docker --quiet
+
       - name: Build Docker Image 
-        run: docker build . -t $IMAGE_NAME:latest
+        run: docker build . -t $IMAGE_NAME
 
       #- name: Test Docker images
       #  run: docker run  $IMAGE_NAME:latest sh -c "go test"
 
 
       - name: Push Docker Image to Artifact Registry
-        #env:
-        #   GIT_TAG: ${{ steps.increment-git-tag.outputs.git-tag }}
-        run: docker push $IMAGE_NAME:latest
+        run: docker push $IMAGE_NAME
 
       - name: Deploy Docker image
-        run: gcloud run deploy $IMAGE_NAME:latest --region us-central1 --platform managed
+        run: gcloud run deploy $IMAGE_NAME --region us-central1 --platform managed
           
   
 
