@@ -43,7 +43,10 @@ jobs:
           service_account: github-actions-service-account@my-project-githubaction.iam.gserviceaccount.com
 
       - name: Build Docker Image 
-        run: docker build -t $IMAGE_NAME:latest . 
+        run: docker build . -t $IMAGE_NAME:latest
+
+      - name: Test Docker images
+        run: docker run  $IMAGE_NAME:latest
 
 
       - name: Push Docker Image to Artifact Registry
