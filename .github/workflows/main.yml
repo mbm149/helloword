@@ -25,7 +25,7 @@ jobs:
 
     env:
       # Replace $PROJECT_ID with your project ID
-      IMAGE_NAME:  gcr.io/my-project-githubaction/app
+      IMAGE_NAME: us-central1-docker.pkg.dev/my-project-githubaction/cloud-run-source-deploy/app01:latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -54,11 +54,7 @@ jobs:
         name: Deploy Docker image
         uses: "google-github-actions/deploy-cloudrun@v0"
         with:
-          image: ${{ env.IMAGE_NAME }}
+          image: us-central1-docker.pkg.dev/my-project-githubaction/cloud-run-source-deploy/app01:latest
           region: us-central1
           service: app
           flags: --port=8080
-
-      # Example of using the output
-      - name: Test URL
-        run: curl "${{ steps.deploy.outputs.url }}"
