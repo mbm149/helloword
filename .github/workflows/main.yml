@@ -58,3 +58,12 @@ jobs:
           region: us-central1
           service: app
           flags: --port=8080
+
+          
+      - name: Terraform Init
+        uses: hashicorp/terraform-github-actions/init@v0.4.0
+        
+      - name: Terraform Apply
+        uses: hashicorp/terraform-github-actions/apply@v0.4.0
+      #  with:
+      #     path: 'staticweb.tf'  
